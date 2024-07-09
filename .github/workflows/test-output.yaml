@@ -1,0 +1,20 @@
+name: Date Output Example
+
+on: push
+
+jobs:
+  get-date:
+    runs-on: ubuntu-latest
+    outputs:
+      current_date: ${{ steps.set-date.outputs.date }}
+    steps:
+      - name: Get Current Date
+        id: set-date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+
+  print-date:
+    needs: get-date
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Current Date
+        run: echo "The current date is ${{ needs.get-date.outputs.current_date }}"
