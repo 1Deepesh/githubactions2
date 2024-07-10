@@ -12,5 +12,6 @@ jobs:
                 color: [red, blue, green]
                 size: [small, large]
         steps:
-            run: |
-              echo -e "${{ matrix.color }} - ${{ matrix.size }}"
+            - name: just print the matrix combination in steps.
+              run: |
+                echo -e "${{ matrix.color }} - ${{ matrix.size }}"
