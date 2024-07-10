@@ -1,0 +1,16 @@
+name: Matrix Example Workflow 
+
+on:
+    workflow_dispatch:
+
+jobs:
+    Build-Job:
+        name: ${{matrix.color}} - ${{ matrix.size}}
+        runs-on: ubuntu-latest 
+        strategy:
+            matrix:
+                color: [red, blue, green]
+                size: [small, large]
+        steps:
+            run: |
+              echo -e "${{ matrix.color }} - ${{ matrix.size }}"
