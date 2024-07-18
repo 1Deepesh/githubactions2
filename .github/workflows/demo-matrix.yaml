@@ -1,0 +1,13 @@
+name: Use of Matrix in GA 
+on:
+  workflow_dispatch:
+    inputs:
+     runjob: 
+      required: true 
+      default: true 
+      type: boolean 
+jobs:
+  build: 
+   runs-on: ubuntu-latest
+   run: |
+     echo "Hello World!"
